@@ -62,13 +62,13 @@ function requireAllTestModules () {
         try {
             var plugintests = cordova.require(id); // eslint-disable-line no-undef
 
-            if (plugintests.hasOwnProperty('defineAutoTests')) {
+            if (Object.prototype.hasOwnProperty.call(plugintests, 'defineAutoTests')) {
                 getTestsObject(id).defineAutoTests = function () {
                     describe(id + ' >>', plugintests.defineAutoTests.bind(plugintests)); // eslint-disable-line no-undef
                 };
             }
 
-            if (plugintests.hasOwnProperty('defineManualTests')) {
+            if (Object.prototype.hasOwnProperty.call(plugintests, 'defineManualTests')) {
                 getTestsObject(id).defineManualTests = plugintests.defineManualTests.bind(plugintests);
             }
         } catch (ex) {
@@ -103,7 +103,7 @@ exports.defineAutoTests = function () {
 
     Object.keys(exports.tests).forEach(function (key) {
         if (!exports.tests[key].getEnabled()) { return; }
-        if (!exports.tests[key].hasOwnProperty('defineAutoTests')) { return; }
+        if (!Object.prototype.hasOwnProperty.call(exports.tests[key], 'defineAutoTests')) { return; }
         exports.tests[key].defineAutoTests();
     });
 };
@@ -114,7 +114,7 @@ exports.defineManualTests = function (contentEl, beforeEach, createActionButton)
 
     Object.keys(exports.tests).forEach(function (key) {
         if (!exports.tests[key].getEnabled()) { return; }
-        if (!exports.tests[key].hasOwnProperty('defineManualTests')) { return; }
+        if (!Object.prototype.hasOwnProperty.call(exports.tests[key], 'defineManualTests')) { return; }
         createActionButton(key, function () {
             beforeEach(key);
             exports.tests[key].defineManualTests(contentEl, createActionButton);

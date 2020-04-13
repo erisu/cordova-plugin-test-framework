@@ -98,7 +98,7 @@ jasmineRequire.MedicReporter = function (j$) {
 
             this.postTests({
                 mobilespec: buildResults(),
-                platform: (platformMap.hasOwnProperty(p) ? platformMap[p] : p),
+                platform: (Object.prototype.hasOwnProperty.call(platformMap, p) ? platformMap[p] : p),
                 version: version,
                 sha: options.sha,
                 timestamp: Math.round(Math.floor((new Date()).getTime() / 1000)),

@@ -42,7 +42,7 @@ function setMode (mode) {
         auto: runAutoTests,
         manual: runManualTests
     };
-    if (!handlers.hasOwnProperty(mode)) {
+    if (!Object.prototype.hasOwnProperty.call(handlers, mode)) {
         console.error('Unsupported mode: ' + mode);
         console.error("Defaulting to 'main'");
         mode = 'main';
@@ -350,7 +350,7 @@ function toggleTestEnabled (checkbox) {
 function iterateAutoTests (cdvtests, callback) {
     Object.keys(cdvtests.tests).forEach(function (api) {
         var testModule = cdvtests.tests[api];
-        if (!testModule.hasOwnProperty('defineAutoTests')) {
+        if (!Object.prototype.hasOwnProperty.call(testModule, 'defineAutoTests')) {
             return;
         }
         callback(api, testModule);
