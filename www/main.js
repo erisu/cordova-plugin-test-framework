@@ -38,9 +38,9 @@ function getMode (callback) {
 
 function setMode (mode) {
     var handlers = {
-        'main': runMain,
-        'auto': runAutoTests,
-        'manual': runManualTests
+        main: runMain,
+        auto: runAutoTests,
+        manual: runManualTests
     };
     if (!handlers.hasOwnProperty(mode)) {
         console.error('Unsupported mode: ' + mode);

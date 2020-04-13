@@ -73,7 +73,6 @@ function requireAllTestModules () {
             }
         } catch (ex) {
             console.warn('Failed to load tests: ', id);
-
         }
     });
 }

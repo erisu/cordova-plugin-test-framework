@@ -80,5 +80,4 @@ function addJasmineReporters (jasmineInterface, jasmineEnv) {
         jasmineInterface.MedicReporter.initialize();
         jasmineEnv.addReporter(jasmineInterface.MedicReporter);
     }
-
 }

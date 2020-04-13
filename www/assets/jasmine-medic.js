@@ -34,7 +34,7 @@ jasmineRequire.MedicReporter = function (j$) {
 
     var platformMap = {
         'ipod touch': 'ios',
-        'iphone': 'ios'
+        iphone: 'ios'
     };
 
     function MedicReporter (options) {
@@ -82,7 +82,7 @@ jasmineRequire.MedicReporter = function (j$) {
         };
 
         var buildResults = function () {
-            var json = {specs: specsExecuted, failures: failureCount, results: results};
+            var json = { specs: specsExecuted, failures: failureCount, results: results };
             return json;
         };
 
@@ -104,7 +104,6 @@ jasmineRequire.MedicReporter = function (j$) {
                 timestamp: Math.round(Math.floor((new Date()).getTime() / 1000)),
                 model: devmodel
             });
-
         };
 
         this.postTests = function (json) {
