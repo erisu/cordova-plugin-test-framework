@@ -43,4 +43,12 @@
             <preference name="hostname" value="localhost" />
         </config-file>
     </platform>
+
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <preference name="scheme" value="http" />
+            <preference name="hostname" value="localhost" />
+            <!-- <preference name="AndroidInsecureFileModeEnabled" value="true" /> -->
+        </config-file>
+    </platform>
 </plugin>
