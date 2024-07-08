@@ -29,6 +29,10 @@
     <keywords>cordova,test</keywords>
 
     <!-- <dependency id="org.apache.cordova.appsettings" /> -->
+    <js-module src="www/testFramework.js" name="testFramework">
+        <clobbers target="testFramework" />
+    </js-module>
+
 
     <js-module src="www/tests.js" name="cdvtests" />
     <js-module src="www/jasmine_helpers.js" name="jasmine_helpers" />
@@ -41,6 +45,15 @@
         <config-file target="config.xml" parent="/*">
             <preference name="scheme" value="app" />
             <preference name="hostname" value="localhost" />
+
+            <feature name="TestFramework">
+              <param name="ios-package" value="CDVTestFrameworkPlugin" />
+              <param name="onload" value="true" />
+            </feature>
+
+            <preference name="SwiftVersion" value="5.0" />
         </config-file>
+
+        <source-file src="src/ios/CDVTestFrameworkPlugin.swift" />
     </platform>
 </plugin>

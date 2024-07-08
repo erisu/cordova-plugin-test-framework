@@ -27,6 +27,18 @@ var CONTENT_TOP_OFFSET = 30;
 var isWin = cordova.platformId === 'windows';
 var isWP8 = cordova.platformId === 'windowsphone';
 
+window.cordova.isSimulator = undefined;
+window.cordova.isDevice = undefined;
+
+document.addEventListener('deviceready', function () {
+    window.testFramework.getEnvironmentType(
+        function (type) {
+            window.cordova.isSimulator = type === 'simulator';
+            window.cordova.isDevice = !window.cordova.isSimulator;
+        }
+    );
+});
+
 /******************************************************************************/
 
 function getMode (callback) {
